@@ -1,0 +1,30 @@
+//GET Config file.
+az aks get-credentials --name demok8s --resource-group demok8s
+Merged "demok8s" as current context in /home/assurant/.kube/config
+
+
+//CREATE azure container registery
+az acr create --resource-group demok8s --name demok8s --sku Basic
+
+//Attach ACR to AKS Cluster
+az aks update -n demok8s -g demok8s --attach-acr demok8s
+
+
+//IMPORT an Image
+az acr import   --name demok8s --source docker.io/library/nginx:latest --image nginx:latest
+
+
+k create deployment nginx --image=demok8s.azurecr.io/nginx:latest
+k expose deploy nginx --name=nginx-svc --port=80 --target-port=0 --type=LoadBalancer
+k get svc
+
+
+
+
+
+
+
+
+
+
+

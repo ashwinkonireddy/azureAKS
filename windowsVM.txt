@@ -1,0 +1,16 @@
+Install AZ cli
+https://aka.ms/installazurecliwindows
+
+
+To get tenant ID  AD >> Proprites
+az login --tenant TENANT_ID
+
+//INSTALL AKS CLI
+az aks install-cli
+
+
+Add env Variable
+c:\Users\demok8s\.azure-kubectl\
+
+
+kubectl create clusterrolebinding k-dash --clusterrole=cluster-admin --serviceaccount=kube-system:k-dash
